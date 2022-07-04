@@ -23,6 +23,16 @@ class Game:
         self.TEXT_C = (255,255,255)
         self.RESULT_C = (255,255,255)
         
+        pygame.init()
+        self.open_img = pygame.image.load('intro pp proj.jpeg')
+        self.open_img = pygame.transform.scale(self.open_img, (self.w,self.h))
+
+        self.bg = pygame.image.load('darkbg.jpeg')
+        self.bg = pygame.transform.scale(self.bg, (750,500))
+
+        self.screen = pygame.display.set_mode((self.w,self.h))
+        pygame.display.set_caption('Type Speed test')
+
         def get_sentence(self):
         f = open('sentences.txt').read()
         sentences = f.split('\n')
