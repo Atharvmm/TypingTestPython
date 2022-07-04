@@ -92,6 +92,34 @@ class Game:
                                 pass
             
             pygame.display.update()
+            
+        def show_results(self, screen):
+          if(not self.end):
+            #To Calculate time
+            self.total_time = time.time() - self.time_start
+               
+            #To Calculate accuracy
+            count = 0
+            for i,c in enumerate(self.word):
+                try:
+                    if self.input_text[i] == c:
+                        count =count+ 1
+                except:
+                    pass
+            self.accuracy = count/len(self.word)*100
+           
+            #To Calculate words per minute
+            self.words=self.input_text.split(" ")
+            self.wpm = len(self.words)*60/self.total_time
+            self.end = True
+            print(self.total_time)
+                
+            self.results = 'Time:'+str(round(self.total_time)) +" seconds   Accuracy: "+ str(round(self.accuracy)) + "%" + '   Wpm: ' + str(round(self.wpm))
+
+            self.draw_text(screen,"Reset", self.h - 70, 30, (240,240,240))
+            
+            print(self.results)
+            pygame.display.update()
              
                 
         clock.tick(60)
