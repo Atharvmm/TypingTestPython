@@ -5,7 +5,7 @@ import time
 import random
 
 class Game:
-
+  #initializing the variables
   def __init__(self):
         self.w=750
         self.h=500
@@ -34,12 +34,14 @@ class Game:
         pygame.display.set_caption('Type Speed test')
 
   def get_sentence(self):
+    #To pick a sentence from the given set
         f = open('sentences.txt').read()
         sentences = f.split('\n')
         sentence = random.choice(sentences)
         return sentence
         
   def draw_text(self, screen, msg, y ,fsize, color):
+    #To display the texts
         font = pygame.font.Font(None, fsize)
         text = font.render(msg, 1,color)
         text_rect = text.get_rect(center=(self.w/2, y))
@@ -47,6 +49,7 @@ class Game:
         pygame.display.update()   
         
   def run(self):
+    # Runs right after the variables are initialized and code is executed
         self.reset_game()
         elf.running=True
         while(self.running):
