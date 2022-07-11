@@ -51,7 +51,7 @@ class Game:
   def run(self):
     # Runs right after the variables are initialized and code is executed
         self.reset_game()
-        elf.running=True
+        self.running=True
         while(self.running):
             clock = pygame.time.Clock()
             self.screen.fill((0,0,0), (50,250,650,50))
